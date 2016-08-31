@@ -2,8 +2,25 @@ require 'rails_helper'
 
 describe Member, type: :model do
 
+  it { should have_many :attendances }
+
+  before(:each) do
+    @london_grammar = School.create(name: "London Grammar")
+    @london_university = School.create(name: "London University")
+    @simon = Member.create(name: "Simon", email: "simon@email.com")
+  end
+
+
   it "allows a member to be created" do
-    Member.create(name: "Simon", email: "simon@email.com")
     expect(Member.all.length).to eq(1)
+  end
+
+  it "allows a member to have multiple schools" do
+    @simon.attendances.create(school: @london_grammar)
+    @simon.attendances.create(school: @london_university)
+    p @simon.attendances 
+    expect(@simon.schools.length).to eq 2
+    expect(@london_grammar.members.length).to eq 1
+    expect(@london_university.members.length).to eq 1
   end
 end
