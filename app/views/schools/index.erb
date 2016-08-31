@@ -1,0 +1,9 @@
+<% if @schools.any? %>
+  <% @schools.each do |school| %>
+    <%= link_to school.name, school_path(school) %>
+  <% end %>
+<% else %>
+  No schools yet
+<% end %>
+
+<a href="schools/new">Add a School</a>
