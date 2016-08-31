@@ -18,9 +18,17 @@ describe Member, type: :model do
   it "allows a member to have multiple schools" do
     @simon.attendances.create(school: @london_grammar)
     @simon.attendances.create(school: @london_university)
-    p @simon.attendances 
-    expect(@simon.schools.length).to eq 2
-    expect(@london_grammar.members.length).to eq 1
-    expect(@london_university.members.length).to eq 1
+
+    expect(@simon.schools.length).to eq(2)
+    expect(@london_grammar.members.length).to eq(1)
+    expect(@london_university.members.length).to eq(1)
+  end
+
+  it "does not allow repeats in the attendances table" do
+    @simon.attendances.create(school: @london_grammar)
+    @simon.attendances.create(school: @london_university)
+    @simon.attendances.create(school: @london_university)
+
+    expect(@simon.schools.length).to eq(2)
   end
 end
