@@ -15,6 +15,11 @@ describe Member, type: :model do
     expect(Member.all.length).to eq(1)
   end
 
+  it "does not allow a member to be created with blank attributes" do
+    Member.create(name: "", email: "")
+    expect(Member.all.length).to eq (1)
+  end
+
   it "allows a member to have multiple schools" do
     @simon.attendances.create(school: @london_grammar)
     @simon.attendances.create(school: @london_university)

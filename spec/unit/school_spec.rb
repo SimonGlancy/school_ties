@@ -15,6 +15,11 @@ describe School, type: :model do
     expect(School.all.length).to eq(2)
   end
 
+  it "does not allow a member to be created with blank attributes" do
+    School.create(name: "")
+    expect(School.all.length).to eq (2)
+  end
+
   it "allows a school to have attendees" do
     @simon.attendances.create(school: @london_grammar)
     @terry.attendances.create(school: @london_grammar)
