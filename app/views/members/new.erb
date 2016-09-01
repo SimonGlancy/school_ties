@@ -1,0 +1,15 @@
+<%= form_for @member do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= fields_for :attendances do |a| %>
+    <%= a.label :school %>
+    <%= a.select :school_id, @schools%>
+
+
+  <% end %>
+
+
+  <%= f.submit %>
+<% end %>

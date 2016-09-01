@@ -1,0 +1,10 @@
+<% if @members.any? %>
+  <% @members.each do |member| %>
+    <%= link_to member.name, member_path(member) %>
+    <%= member.email %>
+  <% end %>
+<% else %>
+  No members yet
+<% end %>
+
+<a href="members/new">Add a Member</a>
