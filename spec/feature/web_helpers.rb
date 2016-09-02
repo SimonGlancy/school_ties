@@ -5,10 +5,10 @@ def create_member(name: 'Simon',
                   university: 'London University')
 visit '/members'
 expect(page).to have_content 'No members yet'
-expect(page).to have_link 'Add a Member'
-click_link 'Add a Member'
+expect(page).to have_link 'ADD A MEMBER'
+click_link 'ADD A MEMBER'
 fill_in 'Name', with: name
-fill_in 'Email', with: email
+fill_in 'user_email', with: email
 select primary_school, from: "attendances_school_id1"
 select secondary_school, from: "attendances_school_id2"
 select university, from: "attendances_school_id3"

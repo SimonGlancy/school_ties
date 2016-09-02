@@ -1,5 +1,16 @@
-<%= form_for @school do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
+<div class="nav-container">
+
+</div>
+
+<div class="schools-canvas">
+  <div class="schools-container">
+    <div class="form-header">Input School Details</div>
+    <%= form_for @school do |f| %>
+    <div class="input-container">
+      <%= f.label :name , class: "form-label"%>
+      <%= f.text_field :name, class: "form-input" %>
+    </div>
+    <div class="input-container"><%= f.submit "Create School", class: "form-button" %></div>
+    <% end %>
+  </div>
+</div>

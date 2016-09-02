@@ -1,9 +1,17 @@
-<% if @schools.any? %>
-  <% @schools.each do |school| %>
-    <%= link_to school.name, school_path(school) %>
-  <% end %>
-<% else %>
-  No schools yet
-<% end %>
+<div class="nav-container">
+  <div class="add-button"><a class="add-button-text" href="schools/new">ADD A SCHOOL</a></div>
+</div>
 
-<a href="schools/new">Add a School</a>
+<div class="schools-canvas">
+  <div class="schools-container">
+    <div class="page-header">Schools</div>
+    <% if @schools.any? %>
+      <% @schools.each do |school| %>
+          <%= link_to school.name, school_path(school), class: "school-text" %>
+      <% end %>
+    <% else %>
+    <div class="no-entries">No schools yet</div>
+
+    <% end %>
+  </div>
+</div>

@@ -1,21 +1,33 @@
-<%= form_for @member do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, required: true, placeholder: "Name" %>
-  <%= f.label :email %>
-  <%= f.text_field :email, id: 'user_email', type:'email', required: true, placeholder: "Email"  %>
-  <%= fields_for :attendances do |a| %>
-      <%= a.label :primary_school %>
-      <%= a.select :school_id1, @schools%>
-      <%= a.label :secondary_school %>
-      <%= a.select :school_id2, @schools%>
-      <%= a.label :university %>
-      <%= a.select :school_id3, @schools%>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+<div class="nav-container">
 
-
-<!-- <%= fields_for :attendances2 do |a| %>
-  <%= a.label :school %>
-  <%= a.select :school_id, @schools, school_id: "member[attendances][school_id]"%>
-<% end %> -->
+</div>
+<div class="schools-canvas">
+  <div class="schools-container">
+    <div class="form-header">Input Member Details</div>
+    <%= form_for @member do |f| %>
+      <div class="input-container">
+        <%= f.label :name, class: "form-label"  %>
+        <%= f.text_field :name, required: true, class: "form-input" %>
+      </div>
+      <div class="input-container">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.text_field :email, id: 'user_email', type:'email',required: true, class: "form-input"  %>
+      </div>
+      <%= fields_for :attendances do |a| %>
+        <div class="input-container">
+          <%= a.label :primary_school, class: "form-label" %>
+          <%= a.select :school_id1, @schools, {}, {class:"form-select"} %>
+        </div>
+        <div class="input-container">
+          <%= a.label :secondary_school, class: "form-label" %>
+          <%= a.select :school_id2, @schools, {}, {class:"form-select"}%>
+        </div>
+        <div class="input-container">
+          <%= a.label :university, class: "form-label" %>
+          <%= a.select :school_id3, @schools, {}, {class:"form-select"}%>
+        </div>
+      <% end %>
+      <div class="input-container"><%= f.submit "Create Member", class: "form-button" %></div>
+    <% end %>
+  </div>
+</div>

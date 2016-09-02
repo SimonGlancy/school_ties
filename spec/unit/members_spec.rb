@@ -43,5 +43,11 @@ describe Member, type: :model do
     expect(@simon.schools.length).to eq(2)
   end
 
+  it "doesn't allow a user to be created if email format is wrong" do
+    simon = Member.new(name: "Simon", email:"simon")
+    expect(simon.save).to be false
+  end
+
+
 
 end

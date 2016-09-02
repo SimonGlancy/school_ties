@@ -10,12 +10,20 @@ class MembersController < ApplicationController
   end
 
   def create
-    @member = Member.create(member_params)
-    attendances_array.each do |school_id|
-      @member.attendances.create(school_id: school_id)
+    member = Member.new(member_params)
+    if member.save
+      attendances_array.each do |school_id|
+        member.attendances.create(school_id: school_id)
+      end
+      redirect_to "/members"
+    else
+      flash[:notice] = "Member was not created"
+      redirect_to "/members/new"
     end
+  end
 
-    redirect_to "/members"
+  def show
+    @member = Member.find(params[:id])
   end
 
   private

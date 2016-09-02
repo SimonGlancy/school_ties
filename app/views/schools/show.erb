@@ -1,11 +1,23 @@
-<%= @school.name %>
-  <% if @school.members.any? %>
-  <% @school.members.each do |member| %>
-    <div class="member-container">
-      <span class="member-name"><%=member.name%></span>
-      <span class="member-email"><%=member.email%></span>
-    </div>
-  <% end %>
-<% else %>
-  No Attendees yet
-<% end %>
+<div class="nav-container">
+
+</div>
+
+<div class="schools-canvas">
+  <div class="members-container">
+    <div class="school-header"> <%= @school.name %></div>
+      <% if @school.members.any? %>
+      <% @school.members.each do |member| %>
+        <div class="school-member-box">
+          <div class="member-name">
+            <%=link_to member.name, member_path(member), class: "member-name-text"  %>
+          </div>
+          <div class="member-email">
+            <span class="member-email-text"><%=member.email%></span>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="no-entries">No Attendees yet </div>
+    <% end %>
+  </div>
+</div>

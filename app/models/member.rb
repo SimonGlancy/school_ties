@@ -5,4 +5,6 @@ class Member < ApplicationRecord
 
   validates :name, length: { minimum: 1 }, presence: true
   validates :email, length: { minimum: 1 }, presence: true, uniqueness: true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+
 end

@@ -6,7 +6,7 @@ feature 'schools' do
     scenario 'should display a prompt to add a school' do
       visit '/schools'
       expect(page).to have_content 'No schools yet'
-      expect(page).to have_link 'Add a School'
+      expect(page).to have_link 'ADD A SCHOOL'
     end
   end
 
@@ -14,8 +14,8 @@ feature 'schools' do
     scenario 'should show all schools' do
       visit '/schools'
       expect(page).to have_content 'No schools yet'
-      expect(page).to have_link 'Add a School'
-      click_link 'Add a School'
+      expect(page).to have_link 'ADD A SCHOOL'
+      click_link 'ADD A SCHOOL'
       fill_in 'Name', with: 'London Grammar'
       click_button 'Create School'
       expect(page).to have_content 'London Grammar'

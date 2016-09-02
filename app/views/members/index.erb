@@ -1,10 +1,16 @@
-<% if @members.any? %>
-  <% @members.each do |member| %>
-    <%= link_to member.name, member_path(member) %>
-    <%= member.email %>
-  <% end %>
-<% else %>
-  No members yet
-<% end %>
+<div class="nav-container">
+  <div class="add-button"><a class="add-button-text" href="members/new">ADD A MEMBER</a></div>
+</div>
 
-<a href="members/new">Add a Member</a>
+<div class="members-canvas">
+  <div class="members-container">
+    <div class="page-header">Members</div>
+    <% if @members.any? %>
+      <% @members.each do |member| %>
+        <%= link_to member.name, member_path(member) , class: "member-text"%>
+      <% end %>
+    <% else %>
+      <div class="no-entries">No members yet</div>
+    <% end %>
+  </div>
+</div>

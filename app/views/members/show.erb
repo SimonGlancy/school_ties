@@ -1,0 +1,16 @@
+<div class="nav-container">
+
+</div>
+
+<div class="schools-canvas">
+  <div class="members-container">
+    <div class="school-header"> <%= @member.name %></div>
+      <% if @member.schools.any? %>
+      <% @member.schools.each do |school| %>
+            <%=link_to school.name, school_path(school), class: "member-text"  %>
+      <% end %>
+    <% else %>
+      <div class="no-entries">No Attendees yet </div>
+    <% end %>
+  </div>
+</div>
