@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+School.create(name: "London Primary")
+School.create(name: "London Grammar")
+School.create(name: "London University")
+School.create(name: "Manchester Primary")
+School.create(name: "Manchester Grammar")
+School.create(name: "Manchester University")
+School.create(name: "Edingburgh Primary")
+School.create(name: "Edingburgh Grammar")
+School.create(name: "Edingburgh University")

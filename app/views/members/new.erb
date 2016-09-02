@@ -1,15 +1,21 @@
 <%= form_for @member do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, required: true, placeholder: "Name" %>
   <%= f.label :email %>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, id: 'user_email', type:'email', required: true, placeholder: "Email"  %>
   <%= fields_for :attendances do |a| %>
-    <%= a.label :school %>
-    <%= a.select :school_id, @schools%>
-
-
+      <%= a.label :primary_school %>
+      <%= a.select :school_id1, @schools%>
+      <%= a.label :secondary_school %>
+      <%= a.select :school_id2, @schools%>
+      <%= a.label :university %>
+      <%= a.select :school_id3, @schools%>
   <% end %>
-
-
   <%= f.submit %>
 <% end %>
+
+
+<!-- <%= fields_for :attendances2 do |a| %>
+  <%= a.label :school %>
+  <%= a.select :school_id, @schools, school_id: "member[attendances][school_id]"%>
+<% end %> -->
