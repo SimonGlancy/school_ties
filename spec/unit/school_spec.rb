@@ -4,6 +4,10 @@ describe School, type: :model do
 
   it { should have_many :attendances }
 
+  let(:school_selection){[[@london_grammar.name,@london_grammar.id],
+                          [@london_university.name,@london_university.id],
+                          "N/A"]}
+
   before(:each) do
     @london_grammar = School.create(name: "London Grammar")
     @london_university = School.create(name: "London University")
@@ -29,5 +33,11 @@ describe School, type: :model do
   it "does not allow duplicate schools" do
     School.create(name: "London Grammar")
     expect(School.all.length).to eq(2)
+  end
+
+  describe "create_school_selection" do
+    it "creates the schools selection" do
+      expect(School.create_school_selection).to eq school_selection
+    end
   end
 end

@@ -4,8 +4,7 @@ class MembersController < ApplicationController
   end
 
   def new
-    @schools = School.all.map{|s| [s.name, s.id]}
-    @schools << "N/A"
+    @schools = School.create_school_selection
     @member = Member.new
     @member.attendances.new
   end

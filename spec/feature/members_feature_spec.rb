@@ -21,5 +21,9 @@ feature 'members' do
       expect(page).to have_content 'simon@email.com'
       expect(current_path).to eq '/members'
     end
+
   end
+
+
+
 end

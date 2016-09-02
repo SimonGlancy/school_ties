@@ -20,6 +20,12 @@ describe Member, type: :model do
     expect(Member.all.length).to eq (1)
   end
 
+  it "does not allow a user to sign up with the same email as someone" do
+    Member.create(name: "Simon", email: "simon@email.com")
+    expect(Member.all.length).to eq(1)
+
+  end
+
   it "allows a member to have multiple schools" do
     @simon.attendances.create(school: @london_grammar)
     @simon.attendances.create(school: @london_university)
@@ -36,4 +42,6 @@ describe Member, type: :model do
 
     expect(@simon.schools.length).to eq(2)
   end
+
+
 end
