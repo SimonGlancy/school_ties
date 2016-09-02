@@ -41,5 +41,4 @@ class MembersController < ApplicationController
     attendances_params.each_key {|key| array << attendances_params[key]}
     array
   end
-
 end

@@ -3,17 +3,16 @@ def create_member(name: 'Simon',
                   primary_school: 'London Primary',
                   secondary_school: 'London Grammar',
                   university: 'London University')
-visit '/members'
-expect(page).to have_content 'No members yet'
-expect(page).to have_link 'ADD A MEMBER'
-click_link 'ADD A MEMBER'
-fill_in 'Name', with: name
-fill_in 'user_email', with: email
-select primary_school, from: "attendances_school_id1"
-select secondary_school, from: "attendances_school_id2"
-select university, from: "attendances_school_id3"
-click_button 'Create Member'
-
+  visit '/members'
+  expect(page).to have_content 'No members yet'
+  expect(page).to have_link 'ADD A MEMBER'
+  click_link 'ADD A MEMBER'
+  fill_in 'Name', with: name
+  fill_in 'user_email', with: email
+  select primary_school, from: "attendances_school_id1"
+  select secondary_school, from: "attendances_school_id2"
+  select university, from: "attendances_school_id3"
+  click_button 'Create Member'
 end
 
 def populate_universites

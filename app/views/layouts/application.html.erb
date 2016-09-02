@@ -3,24 +3,18 @@
   <head>
     <title>SchoolTies</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-
-  <div class="header-container">
-    <a ui-sref="home" class="school-ties-header">SCHOOL TIES</a>
-    <div class="icons-container">
-      <div class="icon"><a class="icon-text" href="/members">MEMBERS</a></div>
-      <div class="icon"><a class="icon-text" href="/schools">SCHOOLS</a></div>
+    <div class="header-container">
+      <a ui-sref="home" class="school-ties-header">SCHOOL TIES</a>
+      <div class="icons-container">
+        <div class="icon"><a class="icon-text" href="/members">MEMBERS</a></div>
+        <div class="icon"><a class="icon-text" href="/schools">SCHOOLS</a></div>
+      </div>
     </div>
-  </div>
-
-
     <%= notice %>
-
     <%= yield %>
   </body>
 </html>

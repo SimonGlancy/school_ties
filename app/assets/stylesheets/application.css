@@ -299,8 +299,6 @@ body {
   display: flex;
 }
 
-
-
 .form-header {
   margin-bottom: 10px;
   margin-top: 20px;
@@ -310,6 +308,7 @@ body {
   width: 510px;
   font-size: 25px;
 }
+
 .form-button{
   align-items: flex-start;
   text-align: center;
@@ -333,8 +332,6 @@ body {
   background-color: black;
   cursor: pointer;
 }
-
-
 
 .form-select {
     padding: 0;

@@ -7,7 +7,6 @@ describe School, type: :model do
   let(:school_selection){[[@london_grammar.name,@london_grammar.id],
                           [@london_university.name,@london_university.id],
                           "N/A"]}
-
   before(:each) do
     @london_grammar = School.create(name: "London Grammar")
     @london_university = School.create(name: "London University")
